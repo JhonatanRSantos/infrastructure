@@ -1,0 +1,46 @@
+environment = "production"
+account_id  = 1234567890
+
+# VPC configs
+
+vpc_name       = "sample"
+vpc_create     = true
+vpc_cidr_block = "10.0.0.0/16"
+vpc_public_subnets = [
+  {
+    az         = "us-east-1a"
+    cidr_block = "10.0.0.0/20"
+  }
+  , {
+    az         = "us-east-1b"
+    cidr_block = "10.0.16.0/20"
+  }
+]
+vpc_private_subnets = []
+# [
+#   {
+#     az         = "us-east-1a"
+#     cidr_block = "10.0.32.0/20"
+#   },
+#   {
+#     az         = "us-east-1b"
+#     cidr_block = "10.0.48.0/20"
+#   }
+# ]
+
+# For low cost we gonna use only public subnets (only for test purpose)
+# This way we don't need use any Elastic IP and Nat Gateway
+vpc_create_nat_gateway      = false # Only when creating private nets. (Nat will allow outbound trafic)
+vpc_enable_dns_support      = true
+vpc_enable_dns_hostnames    = true
+vpc_map_public_ip_on_launch = true
+
+# EKS configs
+
+eks_name   = "sample"
+eks_create = true
+eks_node_group_scaling_config = {
+  min_size     = 2
+  max_size     = 2
+  desired_size = 2
+}

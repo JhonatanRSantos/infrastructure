@@ -1,0 +1,30 @@
+# Binaries for programs and plugins
+*.exe
+*.exe~
+*.dll
+*.so
+*.dylib
+
+# Test binary, built with `go test -c`
+*.test
+
+# Output of the go coverage tool, specifically when used with LiteIDE
+*.out
+
+# Ignore the bin folder
+bin
+.bin
+
+# Ignore Terrafrom folder
+.terraform
+
+# Ignore the internal build folder
+builds
+
+# Ignore all terraform var files
+*.tfvars
+
+# Terrafrom tf state (For now locally !!!)
+*.tfstate
+*.tfstate.*
+
